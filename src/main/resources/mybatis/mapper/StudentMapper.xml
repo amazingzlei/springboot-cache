@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 名称空间（接口的全类名）
+-->
+<mapper namespace="com.fh.mapper.StudentMapper">
+    <select id="getAllStudents" resultType="com.fh.domain.Student">
+        SELECT * FROM student
+    </select>
+
+    <select id="getStudentsByName" resultType="com.fh.domain.Student">
+        SELECT * FROM student WHERE name=#{name}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO student(name) VALUES (#{name})
+    </insert>
+
+    <delete id="del">
+        DELETE FROM student where name=#{name}
+    </delete>
+
+    <update id="update">
+        UPDATE student SET age=21 WHERE name=#{name}
+    </update>
+</mapper>
