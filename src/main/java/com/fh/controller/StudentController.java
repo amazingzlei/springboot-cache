@@ -18,34 +18,34 @@ public class StudentController {
     StudentService studentService;
 
     @RequestMapping("getAll")
-    public List<Student> getAll(){
+    public List<Student> getAll() {
         List<Student> list = studentService.getAllStudents();
         return list;
     }
 
     @RequestMapping("getByName")
-    public Student getById(@RequestParam("name")String name){
+    public Student getById(@RequestParam("name") String name) {
 
         return studentService.getStudentsByName(name);
     }
 
     @RequestMapping("insert")
-    public Student insert(@RequestParam("name")String name){
+    public Student insert(@RequestParam("name") String name) {
         return studentService.insert(name);
     }
 
     @RequestMapping("del")
-    public int del(@RequestParam("name")String name){
+    public int del(@RequestParam("name") String name) {
         return studentService.del(name);
     }
 
     @RequestMapping("update")
-    public int update(@RequestParam("name")String name){
+    public int update(@RequestParam("name") String name) {
         return studentService.update(name);
     }
 
     @RequestMapping("getTeacherByName")
-    public Teacher getTeacherByName(@RequestParam("name")String name){
+    public Teacher getTeacherByName(@RequestParam("name") String name) {
 
         return studentService.getTeacherByName(name);
     }

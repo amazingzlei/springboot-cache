@@ -17,7 +17,7 @@ public class StudentService {
     @Autowired
     private StudentMapper studentMapper;
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return studentMapper.getAllStudents();
     }
 
@@ -32,28 +32,29 @@ public class StudentService {
      * condition 当指定情况时缓存 可以使用spel
      * unless 满足条件时不缓存 可以使用spel
      * sync 是否使用异步
+     *
      * @param name
      * @return
      */
     @Cacheable(cacheNames = {"student"})
-    public Student getStudentsByName(String name){
-        System.out.println("查询"+name+"数据");
+    public Student getStudentsByName(String name) {
+        System.out.println("查询" + name + "数据");
         return studentMapper.getStudentsByName(name);
     }
 
     @Cacheable(cacheNames = {"teacher"})
-    public Teacher getTeacherByName(String name){
-        System.out.println("查询"+name+"数据");
+    public Teacher getTeacherByName(String name) {
+        System.out.println("查询" + name + "数据");
         return studentMapper.getTeacherByName(name);
     }
 
     /**
-     * @CachePut 执行时机:在方法调用之后将结果缓存
      * @param name
      * @return
+     * @CachePut 执行时机:在方法调用之后将结果缓存
      */
     @CachePut(cacheNames = "student")
-    public int update(String name){
+    public int update(String name) {
         return studentMapper.update(name);
     }
 
@@ -63,15 +64,16 @@ public class StudentService {
      * allEntries 是否全部清空
      * beforeInvocation 执行时机，默认为false表示方法执行完后执行，如果为
      * true表示方法执行前执行，这样如果方法中发生异常时会出现问题
+     *
      * @param name
      * @return
      */
     @CacheEvict(cacheNames = "emp")
-    public int del(String name){
+    public int del(String name) {
         return studentMapper.del(name);
     }
 
-    public Student insert(String name){
+    public Student insert(String name) {
         studentMapper.insert(name);
         return studentMapper.getStudentsByName(name);
     }

@@ -10,8 +10,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching //开启缓存
 public class Springboot07CacheApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Springboot07CacheApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Springboot07CacheApplication.class, args);
+    }
 
 }

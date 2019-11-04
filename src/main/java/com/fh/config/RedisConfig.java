@@ -22,9 +22,9 @@ public class RedisConfig {
 
     // 注册到容器中
     @Bean
-    public RedisTemplate<Object,Student> redisTemplate(
-            RedisConnectionFactory redisConnectionFactory){
-        RedisTemplate<Object,Student> template = new RedisTemplate<>();
+    public RedisTemplate<Object, Student> redisTemplate(
+            RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<Object, Student> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
         // 创建json序列化
         Jackson2JsonRedisSerializer<Student> serializer =
@@ -49,7 +49,7 @@ public class RedisConfig {
         RedisSerializer<Object> jsonSerializer = new GenericJackson2JsonRedisSerializer();
         RedisSerializationContext.SerializationPair<Object> pair = RedisSerializationContext.SerializationPair
                 .fromSerializer(jsonSerializer);
-        RedisCacheConfiguration defaultCacheConfig= RedisCacheConfiguration.defaultCacheConfig()
+        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(pair);
         //设置默认超过期时间是30秒
         defaultCacheConfig.entryTtl(Duration.ofSeconds(30));
